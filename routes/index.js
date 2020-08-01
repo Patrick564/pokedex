@@ -1,13 +1,28 @@
 const express = require('express');
 const router = express.Router();
 
+const Api = require('../api');
+const Data = require('../data');
+
+const requestApi = new Api();
+const getPokemonData = new Data();
+
 router.get('/', (req, res) => {
-    res.render('index');
-    // res.send('index of pokedex');
+    res.send('index');
 });
 
-router.get('/pokedex', (req, res) => {
-    res.send('Pokedex!!');
-});
+router.get('/:id', async (req, res) => {
+    try {
+        let pokemonData = await requestApi.getPokemon(req.params.id);
+        let pokemonSpecies = await requestApi.getPokemonSpecies(req.params.id);
+
+        res.render('index', {
+            stats: getPokemonData.getStats(pokemonData),
+            species: getPokemonData.getSpecies(pokemonSpecies),
+        });
+    } catch (error) {
+        res.send(error);
+    }
+}); 
 
 module.exports = router;

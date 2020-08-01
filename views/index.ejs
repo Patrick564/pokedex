@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Recursive&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/tailwind.css">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Pokedex</title>
+</head>
+<body class="m-3">
+    <header class="text-3xl flex justify-between">
+        <div>Random</div>
+        <div>Search</div>
+    </header>
+    <div class="text-xl capitalize text-center">
+        <%= stats.name %>
+    </div>
+    <main class="flex flex-wrap justify-center">
+        <div>
+            Image:
+            <img src="<%= stats.sprites.front_default %>" />
+        </div>
+
+        <div>
+            Description:
+            <%= species.description %>
+        </div>
+        
+        <div>
+            Data:
+            <%= stats.stats.hp %>
+        </div>
+    </main>
+    <footer class="text-2xl flex justify-between">
+        <button class="button">
+            Back
+        </button>
+
+        <button class="button">
+            Next
+        </button>
+    </footer>
+</body>
+</html>

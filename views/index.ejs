@@ -4,40 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Recursive&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="https://img.icons8.com/office/16/000000/pokedex.png" type="image/x-icon">
     <link rel="stylesheet" href="css/tailwind.css">
     <link rel="stylesheet" href="css/index.css">
-    <title>Pokedex</title>
+    <title>Pokédex</title>
 </head>
 <body class="m-3">
-    <header class="text-3xl flex justify-between">
+    <header class="absolute top-0 right-0 left-0 text-3xl flex justify-between mx-4 mt-8">
         <div>Random</div>
         <div>Search</div>
     </header>
-    <div class="text-xl capitalize text-center">
-        <%= stats.name %>
-    </div>
-    <main class="flex flex-wrap justify-center">
-        <div>
-            Image:
+    
+    <main class="absolute top-0 bottom-0 flex flex-col justify-center">
+        <div class="text-xl capitalize text-center my-3">
+            <%= stats.name %>
+        </div>
+
+        <div class="self-center m-4">
             <img src="<%= stats.sprites.front_default %>" />
         </div>
 
-        <div>
-            Description:
+        <div class="capitalize m-2">
             <%= species.description %>
         </div>
         
-        <div>
+        <div class="m-2">
             Data:
             <%= stats.stats.hp %>
         </div>
     </main>
-    <footer class="text-2xl flex justify-between">
-        <button class="button">
+
+    <footer class="absolute bottom-0 right-0 left-0 text-lg flex justify-between mx-4 mb-8">
+        <button class="button border border-red-500 rounded-md p-2">
             Back
         </button>
 
-        <button class="button">
+        <button class="button border border-red-500 rounded-md p-2">
             Next
         </button>
     </footer>

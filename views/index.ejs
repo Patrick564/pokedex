@@ -9,14 +9,18 @@
     <link rel="stylesheet" href="css/index.css">
     <title>Pokédex</title>
 </head>
-<body class="m-3">
-    <header class="absolute top-0 right-0 left-0 text-3xl flex justify-between mx-4 mt-8">
-        <div>Random</div>
-        <div>Search</div>
+<body class="bg-blue-300 flex flex-col m-3">
+    <header class="flex justify-center mx-4 mt-6 mb-2">
+        <form action="#" method="get">
+            <label>
+                <img class="inline-block" src="images/pokeball.svg" width="24px" height="24px" alt="Pokeball">
+                <input class="shadow leading-tight  appearance-none border rounded-full p-2 focus:outline-none focus:shadow-outline" type="search" name="searchPokemon" id="searchPokemon" placeholder="Id or name">
+            </label>
+        </form>
     </header>
     
-    <main class="absolute top-0 bottom-0 flex flex-col justify-center">
-        <div class="text-xl capitalize text-center my-3">
+    <main class="border-t border-red-600 flex flex-col justify-center">
+        <div class="text-3xl capitalize text-center my-3">
             <%= stats.name %>
         </div>
 
@@ -24,24 +28,28 @@
             <img src="<%= stats.sprites.front_default %>" />
         </div>
 
-        <div class="capitalize m-2">
+        <div class="bg-gray-200 border border-black rounded-lg m-2 p-2">
             <%= species.description %>
         </div>
         
-        <div class="m-2">
-            Data:
-            <%= stats.stats.hp %>
+        <div class="bg-gray-200 capitalize border border-black rounded-lg m-2 p-2">
+            <div>
+                Types:
+                <% stats.types.forEach(type => { %>
+                    <%= type %>
+                <% }) %>
+            </div>
         </div>
     </main>
 
-    <footer class="absolute bottom-0 right-0 left-0 text-lg flex justify-between mx-4 mb-8">
-        <button class="button border border-red-500 rounded-md p-2">
-            Back
-        </button>
+    <footer class="text-lg flex justify-between mx-2 mt-10">
+        <a class="button border border-red-500 rounded-md p-2" href="/<%= id - 1 %>">
+            Previous
+        </a>
 
-        <button class="button border border-red-500 rounded-md p-2">
+        <a class="button border border-red-500 rounded-md p-2" href="/<%= id + 1 %>">
             Next
-        </button>
+        </a>
     </footer>
 </body>
 </html>

@@ -35,6 +35,7 @@ class GetPokemonData {
     }
 
     getSpecies(pokemon) {
+        let description = pokemon.flavor_text_entries;
         let species = {
             description: pokemon.flavor_text_entries[0].flavor_text,
             // evolution_chain: pokemon.evolution_chain.url,

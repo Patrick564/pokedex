@@ -17,6 +17,7 @@ router.get('/:id', async (req, res) => {
         let pokemonSpecies = await requestApi.getPokemonSpecies(req.params.id);
 
         res.render('index', {
+            id: Number(req.params.id),
             stats: getPokemonData.getStats(pokemonData),
             species: getPokemonData.getSpecies(pokemonSpecies),
         });

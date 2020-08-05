@@ -9,47 +9,48 @@
     <link rel="stylesheet" href="/public/css/index.css">
     <title>Pokédex</title>
 </head>
-<body class="bg-red-600 flex flex-col m-3">
-    <header class="bg-teal-400 rounded-lg flex justify-center mx-4 mt-3 mb-2 p-2">
-        <form action="/search" method="get">
-            <label>
-                <img class="inline-block" src="https://img.icons8.com/color/36/000000/mega-ball.png" alt="Pokeball">
-                <input class="shadow leading-tight  appearance-none border rounded-full p-2 focus:outline-none focus:shadow-outline" type="search" name="search" id="search" placeholder="Id or name">
-            </label>
-        </form>
-    </header>
-    
-    <main class="border-t-2 border-black flex flex-col justify-center">
-        <div class="text-3xl text-white capitalize text-center my-3" id="title">
-            <%= stats.name %>
-        </div>
+<body class="bg-gray-100">
+    <div class="bg-red-600 rounded-md mt-4 flex flex-col max-w-xs m-auto m-3 p-4">
+		<header class="bg-teal-400 rounded-lg flex justify-center mx-4 mt-3 mb-2 p-2">
+			<form action="/search" method="get">
+				<label>
+					<img class="inline-block" src="https://img.icons8.com/color/36/000000/mega-ball.png" alt="Pokeball">
+					<input class="shadow leading-tight appearance-none border rounded-full p-2 focus:outline-none focus:shadow-outline" type="search" name="search" id="search" placeholder="Id or name">
+				</label>
+			</form>
+		</header>
+		
+		<main class="border-t-2 border-black flex flex-col justify-center">
+			<div class="text-3xl text-white capitalize text-center my-3" id="title">
+				<%= stats.name %>
+			</div>
 
-        <div class="self-center border rounded-lg bg-gray-200 m-4">
-            <img src="<%= stats.sprites.front_default %>"/>
-        </div>
+			<div class="self-center border rounded-lg bg-gray-200 m-4">
+				<img src="<%= stats.sprites.front_default %>"/>
+			</div>
 
-        <div class="bg-gray-200 border border-black rounded-lg m-2 p-2" id="description">
-            <%= species.description %>
-        </div>
-        
-        <div class="bg-gray-200 capitalize border border-black rounded-lg m-2 p-2">
-            <div>
-                Types:
-                <% stats.types.forEach(type => { %>
-                    <%= type %>
-                <% }) %>
-            </div>
-        </div>
-    </main>
+			<div class="bg-gray-200 border border-black rounded-lg m-2 p-2" id="description">
+				<%= species.description %>
+			</div>
+			
+			<div class="capitalize text-white flex">
+				<% stats.types.forEach(type => { %>
+					<div class="bg-blue-400 border border-black rounded-lg m-2 p-2">
+						<%= type %>
+					</div>
+				<% }) %>
+			</div>
+		</main>
 
-    <footer class="text-lg flex justify-between mx-2 mt-8">
-        <a class="button border border-black rounded-full p-2" href="/pokemon/<%= stats.id - 1 %>">
-            <img src="https://img.icons8.com/material-sharp/24/000000/chevron-left.png"/>
-        </a>
+		<footer class="text-lg flex justify-between mx-2 mt-6">
+			<a class="button border border-black rounded-full p-2" href="/pokemon/<%= stats.id - 1 %>">
+				<img src="https://img.icons8.com/material-sharp/24/000000/chevron-left.png"/>
+			</a>
 
-        <a class="button border border-black rounded-full p-2" href="/pokemon/<%= stats.id + 1 %>">
-            <img src="https://img.icons8.com/material-sharp/24/000000/chevron-right.png"/>
-        </a>
-    </footer>
+			<a class="button border border-black rounded-full p-2" href="/pokemon/<%= stats.id + 1 %>">
+				<img src="https://img.icons8.com/material-sharp/24/000000/chevron-right.png"/>
+			</a>
+		</footer>
+    </div>
 </body>
 </html>

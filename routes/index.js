@@ -7,21 +7,33 @@ const Data = require('../data');
 const requestApi = new Api();
 const getPokemonData = new Data();
 
+
 router.get('/', (req, res) => {
     res.redirect('/pokemon/1');
 });
 
 router.get('/search', (req, res) => {
-    res.redirect(`/pokemon/${req.query.search}`);
+    let id = req.query.search;
+
+    if (isNaN(id)) {
+        id = id.toLowerCase();
+    }
+
+    res.redirect(`/pokemon/${id}`);
 });
 
 router.get('/pokemon/:id', async (req, res) => {
+    let id = req.params.id;
+
+    if (isNaN(id)) {
+        id = id.toLowerCase();
+    }
+
     try {
-        let pokemonData = await requestApi.getPokemon(req.params.id);
-        let pokemonSpecies = await requestApi.getPokemonSpecies(req.params.id);
+        let pokemonData = await requestApi.getPokemon(id);
+        let pokemonSpecies = await requestApi.getPokemonSpecies(id);
 
         res.render('index', {
-            // id: Number(req.params.id),
             stats: getPokemonData.getStats(pokemonData),
             species: getPokemonData.getSpecies(pokemonSpecies),
         });

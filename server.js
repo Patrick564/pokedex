@@ -21,6 +21,9 @@ app.set('view engine', 'ejs');
 
 // Routes
 app.use('/', indexRoute);
+app.get('*', (req, res) => {
+    res.redirect('/pokemon/1');
+})
 
 server.listen(port, (err) => {
     if (err) throw err;

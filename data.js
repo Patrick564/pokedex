@@ -1,8 +1,8 @@
 class GetPokemonData {
     getStats(pokemon) {
         let stats = {
+            id: pokemon.id,
             name: pokemon.name,
-            // specie: pokemon.species.url,
             weight: pokemon.weight,
             height: pokemon.height,
             abilities: [],

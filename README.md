@@ -13,6 +13,6 @@ npm start
 ```
 
 ## Demo
-```
-Go to page(Heroku): http://pokdx.herokuapp.com/
-```
+
+##### Go to page(Heroku): http://pokdx.herokuapp.com/
+

@@ -8,12 +8,15 @@
     "dotenv": "^8.2.0",
     "ejs": "^3.1.3",
     "express": "^4.17.1",
+    "postcss": "^8.2.4",
+    "postcss-cli": "^8.3.1",
     "tailwindcss": "^1.6.0"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "postcss public/css/tailwind.css -o public/build/tailwind-build.css"
   },
   "keywords": [],
   "author": "",

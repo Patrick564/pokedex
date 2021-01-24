@@ -10,7 +10,6 @@ class RequestApi {
     async getPokemonSpecies(nameId) {
         let pokemonSpecies = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${nameId}/`);
 
-        // console.log(pokemonSpecies.data);
         return pokemonSpecies.data;
     }
 }

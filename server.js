@@ -1,4 +1,3 @@
-// Enviroment variables
 const dotenv = require('dotenv');
 dotenv.config({ path: '.env' });
 
@@ -11,15 +10,11 @@ const indexRoute = require('./routes/index');
 const port = process.env.PORT || 3000;
 
 app.use('/public' , express.static('public'));
-// app.use(express.bodyParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-// Views
-// app.set('views', (__dirname + '/views'));
 app.set('view engine', 'ejs');
 
-// Routes
+
 app.use('/', indexRoute);
 app.get('*', (req, res) => {
     res.redirect('/pokemon/1');
